@@ -21,7 +21,7 @@ namespace Excel
             // Сохраняем и закрываем файл дубликата таблицы расчета Excel, сама таблица расчета не сохраняется
             if (File.Exists(args[1]))
                 File.Delete(args[1]);
-            workbook.SaveAs (args[1], Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            workbook.SaveAs (args[1], Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbookMacroEnabled, Type.Missing, Type.Missing, false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             workbook.Close(false);
             excelApp.Quit();
 
