@@ -19,7 +19,8 @@ namespace Excel
             excelApp.Run("Update"); // Запускаем макрос
 
             // Сохраняем и закрываем файл дубликата таблицы расчета Excel, сама таблица расчета не сохраняется
-            File.Delete(args[1]);
+            if (File.Exists(args[1]))
+                File.Delete(args[1]);
             workbook.SaveAs (args[1], Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, false, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             workbook.Close(false);
             excelApp.Quit();
